@@ -1,0 +1,14 @@
+cargo-features = ["edition"]
+
+[package]
+edition = '2018'
+name = "ray-tracing-the-next-week"
+version = "0.1.0"
+authors = ["Durairaj, Janani <janani.durairaj@wur.nl>"]
+
+[dependencies]
+rand="0.5"
+image="*"
+
+[profile.release]
+debug = true
