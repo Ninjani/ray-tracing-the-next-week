@@ -68,8 +68,6 @@ impl NoiseTexture {
 impl Texture for NoiseTexture {
     #[allow(unused_variables)]
     fn value(&self, u: f32, v: f32, p: Vec3) -> Vec3 {
-        // Vec3::new(1., 1., 1.) * self.noise.noise(&(p * self.scale))
-        // Vec3::new(1., 1., 1.) * self.noise.turbulence(&(p * self.scale), 7)
         Vec3::new(1., 1., 1.)
             * 0.5
             * (1. + (self.scale * p.z + 5. * self.noise.turbulence(&(p * self.scale), 7)).sin())

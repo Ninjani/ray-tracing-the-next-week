@@ -92,9 +92,7 @@ impl Perlin {
     }
 
     pub fn turbulence(&self, p: &Vec3, depth: usize) -> f32 {
-        let mut accumulator = 0.;
-        let mut temp_p = *p;
-        let mut weight = 1.;
+        let (mut accumulator, mut temp_p, mut weight) = (0., *p, 1.);
         for _ in 0..depth {
             accumulator += weight * self.noise(&temp_p);
             weight *= 0.5;

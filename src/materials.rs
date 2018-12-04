@@ -50,9 +50,10 @@ impl Material {
     }
     pub fn metal(albedo: Vec3, fuzz: f32) -> Material {
         if fuzz > 1. {
-            return Material::Metal { albedo, fuzz: 1. };
+            Material::Metal { albedo, fuzz: 1. }
+        } else {
+            Material::Metal { albedo, fuzz }
         }
-        Material::Metal { albedo, fuzz }
     }
     pub fn dielectric(ref_idx: f32) -> Material {
         Material::Dielectric { ref_idx }
@@ -91,9 +92,6 @@ impl Material {
                 let (outward_normal, ni_over_nt, cosine) = if ray_in.direction.dot(record.normal)
                     > 0.
                 {
-//                    let mut cosine =
-//                        ray_in.direction.dot(record.normal) / ray_in.direction.length();
-                    // cosine = (1. - ref_idx * ref_idx * (1. - cosine * cosine)).sqrt();
                     (-record.normal, *ref_idx, ref_idx * ray_in.direction.dot(record.normal) / ray_in.direction.length())
                 } else {
                     let cosine = -ray_in.direction.dot(record.normal) / ray_in.direction.length();

@@ -11,8 +11,6 @@ pub struct Camera {
     pub origin: Vec3,
     pub lens_radius: f32,
     pub uvw: (Vec3, Vec3, Vec3),
-    //pub v: Vec3,
-    //pub w: Vec3,
     pub time_0: f32,
     pub time_1: f32,
 }

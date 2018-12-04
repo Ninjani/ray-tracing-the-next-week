@@ -9,9 +9,6 @@ pub mod rays;
 pub mod textures;
 pub mod vectors;
 
-extern crate rand;
-extern crate image;
-
 use crate::hitables::bvh::BVHNode;
 use crate::hitables::spheres::{Sphere, MovingSphere};
 use crate::hitables::rectangles::*;

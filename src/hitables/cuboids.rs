@@ -1,6 +1,4 @@
-use super::bvh::BVHNode;
-use super::rectangles::*;
-use super::transforms::*;
+use crate::hitables::{bvh::BVHNode, rectangles::*, transforms::*};
 use crate::bboxes::AABB;
 use crate::hitables::{HitRecord, Hitable};
 use crate::materials::Material;

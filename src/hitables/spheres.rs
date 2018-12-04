@@ -32,9 +32,7 @@ impl Sphere {
 impl Hitable for Sphere {
     fn hit(&self, ray: &Ray, t_min: f32, t_max: f32) -> Option<HitRecord> {
         let oc = ray.origin - self.center;
-        let a = ray.direction.dot(ray.direction);
-        let b = oc.dot(ray.direction);
-        let c = oc.dot(oc) - self.radius * self.radius;
+        let (a, b, c) = (ray.direction.dot(ray.direction), oc.dot(ray.direction), oc.dot(oc) - self.radius * self.radius);
         let discriminant = b * b - a * c;
         if discriminant > 0. {
             let temp = (-b - discriminant.sqrt()) / a;
@@ -101,9 +99,7 @@ impl MovingSphere {
 impl Hitable for MovingSphere {
     fn hit(&self, ray: &Ray, t_min: f32, t_max: f32) -> Option<HitRecord> {
         let oc = ray.origin - self.center(ray.time);
-        let a = ray.direction.dot(ray.direction);
-        let b = oc.dot(ray.direction);
-        let c = oc.dot(oc) - self.radius * self.radius;
+        let (a, b, c) = (ray.direction.dot(ray.direction), oc.dot(ray.direction), oc.dot(oc) - self.radius * self.radius);
         let discriminant = b * b - a * c;
         if discriminant > 0. {
             let temp = (-b - discriminant.sqrt()) / a;

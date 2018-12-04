@@ -9,7 +9,6 @@ use crate::bboxes::AABB;
 use crate::materials::Material;
 use crate::rays::Ray;
 use crate::vectors::Vec3;
-
 use std::f32::MAX;
 use rand::Rng;
 use std::rc::Rc;
